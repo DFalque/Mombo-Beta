@@ -1,9 +1,10 @@
 .HeaderItinerary{
     width: 70%;
-    height: 100px;
+    height: 150px;
     display: flex;
     flex-direction: column;
     //align-content: flex-start;
+    gap: 15px;
     margin: 20px 0px 20px 0px;
     border-bottom: 1px ;
     border-bottom-style: solid;

@@ -6,7 +6,7 @@ import "./CardItinerary.scss"
 
 const CardItinerary = ( {index, date, title, subtitle, departure, type, id}) => {
 
-    if( !id    ) return null
+    if( !id ) return null
     return (
         <Draggable  key={id} draggableId={id} index={index} >
             {(provided)=>(
