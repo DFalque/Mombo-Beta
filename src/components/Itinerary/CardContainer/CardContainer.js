@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { DragDropContext, Droppable } from "react-beautiful-dnd"
 import CardItinerary from "../CardItinerary"
+import "./CardContainer.scss"
 
 function CardContainer(props) {
 	const { itinerary: itineraryProp } = props
@@ -37,11 +38,13 @@ function CardContainer(props) {
 						{...provided.droppableProps}
 						ref={provided.innerRef}
 					>
-						{itineraryProp
-							? itineraryProp.map((card, index) => {
-									return <CardItinerary {...card} index={index} key={index} />
-							  })
-							: null}
+						{itineraryProp ? (
+							itineraryProp.map((card, index) => {
+								return <CardItinerary {...card} index={index} key={index} />
+							})
+						) : (
+							<p>¿añade algo a tu viaje?</p>
+						)}
 						{provided.placeholder}
 					</div>
 				)}

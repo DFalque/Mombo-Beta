@@ -10,7 +10,7 @@ import { useState } from "react"
 import "./ModalAddCard.scss"
 
 export default function FormDialog(props) {
-	const { openModal, setOpenModal, newCard, setNewCard } = props
+	const { openModal, setOpenModal, setItineraryDay, setNewCard } = props
 	const [open, setOpen] = useState(openModal)
 
 	/*const handleClickOpen = () => {
@@ -19,6 +19,12 @@ export default function FormDialog(props) {
 
 	const handleClose = () => {
 		setOpen(false)
+		setOpenModal(false)
+	}
+
+	const save = () => {
+		setOpen(false)
+		setItineraryDay()
 		setOpenModal(false)
 	}
 
@@ -48,6 +54,7 @@ export default function FormDialog(props) {
 					type="email"
 					variant="standard"
 					autoComplete="off"
+					onChange={(e) => setNewCard("title", e.target.value)}
 				/>
 				<TextField
 					autoFocus
@@ -57,15 +64,17 @@ export default function FormDialog(props) {
 					type="text"
 					autoComplete="off"
 					variant="standard"
+					onChange={(e) => setNewCard("subtitle", e.target.value)}
 				/>
 				<TextField
 					autoFocus
 					margin="dense"
-					id="name"
+					id="date"
 					label="Fecha"
 					type="email"
 					variant="standard"
 					autoComplete="off"
+					onChange={(e) => setNewCard("date", e.target.value)}
 				/>
 				<TextField
 					autoFocus
@@ -75,11 +84,12 @@ export default function FormDialog(props) {
 					type="text"
 					variant="standard"
 					autoComplete="off"
+					onChange={(e) => setNewCard("departure", e.target.value)}
 				/>
 			</DialogContent>
 			<DialogActions>
 				<Button onClick={handleClose}>Cancelar</Button>
-				<Button onClick={handleClose}>Guardar</Button>
+				<Button onClick={save}>Guardar</Button>
 			</DialogActions>
 		</Dialog>
 	)
